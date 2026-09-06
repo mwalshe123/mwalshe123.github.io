@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Michael Walshe — Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+        Michael Walshe
+    </a>
+
+    <nav>
+        <a href="cad.html" class="magnetic">CAD</a>
+        <a href="projects.html" class="magnetic">Projects</a>
+        <a href="experience.html" class="magnetic">Experience</a>
+        <a href="index.html#contact" class="magnetic">Contact</a>
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+        >
+            <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+            </span>
+        </button>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="gallery-intro reveal">
+
+        <span class="eyebrow">
+            OUTSIDE ENGINEERING
+        </span>
+
+        <h1>
+            Sport, travel & competition.
+        </h1>
+
+        <p>
+            A few frames from outside the workshop — matches,
+            trips, and the odd black tie.
+        </p>
+
+        <a href="index.html" class="back-link">
+            ← Back home
+        </a>
+
+    </section>
+
+
+    <section class="gallery-grid reveal">
+
+        <div class="gallery-item tall">
+            <img src="images/gaa.jpg" alt="Gaelic football match">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/travel.jpg" alt="Christ the Redeemer, Rio de Janeiro">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-gaa2.jpg" alt="Gaelic football match">
+        </div>
+
+        <div class="gallery-item tall">
+            <img src="images/life2.jpg" alt="Waterfall with friends">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-travel2.jpg" alt="Machu Picchu, Peru">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-travel3.jpg" alt="El Salvador presidential palace">
+        </div>
+
+        <div class="gallery-item tall">
+            <img src="images/gallery-formal2.jpg" alt="Formal night with friends">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-formal1.jpg" alt="Trinity Ball">
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/gallery-debate.jpg" alt="Concern Junior Cycle Debates">
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <span>
+        © 2026 Michael Walshe
+    </span>
+
+    <span>
+        Mechanical & Manufacturing Engineering
+    </span>
+
+    <span>
+        Dublin, Ireland
+    </span>
+
+</footer>
+
+
+<script>
+
+    document.querySelectorAll('.magnetic').forEach(function (el) {
+
+        el.addEventListener('mousemove', function (e) {
+
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            el.style.transform =
+                'translate(' + (x * 0.25) + 'px,' + (y * 0.35) + 'px)';
+
+        });
+
+        el.addEventListener('mouseleave', function () {
+            el.style.transform = '';
+        });
+
+    });
+
+
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(function (entries) {
+
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+
+    }, { threshold: 0.1 });
+
+    revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+    });
+
+
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+    }
+
+    themeToggle.addEventListener('click', function () {
+
+        const isDark = root.getAttribute('data-theme') === 'dark';
+
+        if (isDark) {
+            root.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            root.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Michael Walshe — Twin-Boom Pusher UAV</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+        Michael Walshe
+    </a>
+
+    <nav>
+        <a href="cad.html" class="magnetic">CAD</a>
+        <a href="projects.html" class="magnetic">Projects</a>
+        <a href="experience.html" class="magnetic">Experience</a>
+        <a href="index.html#contact" class="magnetic">Contact</a>
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+        >
+            <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+            </span>
+        </button>
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="project-hero reveal">
+
+    <div class="project-hero-visual">
+        <img src="images/drone.png" alt="Single-engine twin-boom pusher UAV, early CAD concept">
+    </div>
+
+    <div class="project-hero-info">
+
+        <span class="eyebrow">
+            AEROSPACE · CAD · AERODYNAMICS · CFD
+        </span>
+
+        <h1>
+            Twin-Boom Pusher UAV
+            <span class="wip-tag">IN PROGRESS</span>
+        </h1>
+
+        <p>
+            A single-engine, twin-boom pusher UAV designed for
+            Eirspace to test a substantially different aerodynamic
+            configuration from their existing aircraft — currently
+            in CFD analysis ahead of manufacturing.
+        </p>
+
+        <div class="stat-row">
+            <span>600MM WINGSPAN</span>
+            <span>SINGLE REAR PUSHER MOTOR</span>
+            <span>TWIN-BOOM H-TAIL</span>
+            <span class="stat-wip">CFD TESTING — NOT YET BUILT</span>
+        </div>
+
+        <a href="projects.html" class="back-link">
+            ← Back to projects
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     STATUS BANNER
+================================================== -->
+
+<section class="status-banner reveal">
+
+    <span class="status-icon">🚧</span>
+
+    <p>
+        <strong>Work in progress.</strong>
+        This aircraft exists as a CAD design currently going
+        through CFD simulation — it has not been manufactured or
+        flight-tested yet. Everything below reflects the design
+        intent and simulation targets, not measured results.
+        Manufacturing and flight testing will follow.
+    </p>
+
+</section>
+
+
+<!-- ==================================================
+     OVERVIEW
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>Project Overview</h2>
+
+    <div class="overview-row">
+
+        <p>
+            Eirspace tasked me with designing a test aircraft that
+            explores a substantially different aerodynamic
+            configuration to their existing UAS — not to replace
+            it, but to generate real comparative data. I know this
+            design isn't inherently "better"; it's a different
+            architecture, built specifically so it can be measured
+            against the original.
+        </p>
+
+        <p>
+            Where the previous aircraft distributed its motors
+            around the wing, this concept moves everything to a
+            single rear pusher motor, wraps a sleeker central
+            fuselage around the electronics and payload bay, and
+            adds proper three-axis control through dedicated
+            ailerons, elevator and twin rudders on a twin-boom
+            H-tail — control surfaces the previous aircraft
+            largely didn't have.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     COMPARISON TABLE
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>How It Compares</h2>
+
+    <p>
+        The point of this aircraft is comparison, so here's the
+        configuration change area by area:
+    </p>
+
+    <div class="compare-table-wrap">
+        <table class="compare-table">
+
+            <thead>
+                <tr>
+                    <th>Area</th>
+                    <th>Previous drone</th>
+                    <th>New drone</th>
+                    <th>Reason for testing</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Propulsion</td>
+                    <td>Motors around / under the wing</td>
+                    <td>Single rear pusher motor</td>
+                    <td>Cleaner wing airflow, less propulsion hardware</td>
+                </tr>
+
+                <tr>
+                    <td>Fuselage</td>
+                    <td>More conventional, boxier centre body</td>
+                    <td>Sleek, streamlined central fuselage</td>
+                    <td>Lower frontal area, lower parasite drag</td>
+                </tr>
+
+                <tr>
+                    <td>Wing</td>
+                    <td>Previous wing geometry</td>
+                    <td>Clean tapered aerodynamic wing</td>
+                    <td>Better lift-to-drag, more efficient cruise</td>
+                </tr>
+
+                <tr>
+                    <td>Tail architecture</td>
+                    <td>Limited / no yaw-control surfaces</td>
+                    <td>Twin-boom H-tail</td>
+                    <td>Strong pitch/yaw authority, clear pusher path</td>
+                </tr>
+
+                <tr>
+                    <td>Rudders</td>
+                    <td>No dedicated vertical rudders</td>
+                    <td>Twin vertical rudders</td>
+                    <td>Direct yaw control, better crosswind handling</td>
+                </tr>
+
+                <tr>
+                    <td>Elevator</td>
+                    <td>Limited tail pitch control</td>
+                    <td>Dedicated horizontal elevator</td>
+                    <td>Predictable pitch authority, easier trimming</td>
+                </tr>
+
+                <tr>
+                    <td>Ailerons</td>
+                    <td>Previous control arrangement</td>
+                    <td>Dedicated outboard ailerons</td>
+                    <td>Better, faster direct roll control</td>
+                </tr>
+
+                <tr>
+                    <td>Prop airflow</td>
+                    <td>Motors/props interact with wing directly</td>
+                    <td>Rear prop separated from main wing</td>
+                    <td>Main wing sees cleaner incoming airflow</td>
+                </tr>
+
+                <tr>
+                    <td>Internal volume</td>
+                    <td>Existing packaging</td>
+                    <td>Large central fuselage</td>
+                    <td>Room for battery, flight controller, payload</td>
+                </tr>
+
+                <tr>
+                    <td>Modularity</td>
+                    <td>Existing construction</td>
+                    <td>Central body + wings + booms + tail</td>
+                    <td>Sections can be built and modified separately</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FIVE STRONGEST ADVANTAGES
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>The Five Strongest Arguments</h2>
+
+    <div class="highlight-grid highlight-grid-5">
+
+        <div class="highlight-card">
+            <span class="highlight-icon">🪽</span>
+            <h3>Cleaner Aerodynamic Wing</h3>
+            <p>No motor nacelles or propulsion hardware around the wing — a chance to test whether removing that interference drag actually improves efficiency.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">🚀</span>
+            <h3>Sleeker Fuselage</h3>
+            <p>Narrow rounded nose tapering into the main equipment bay, then down to the 30mm rear motor section — smoother cross-sectional changes to cut form drag.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">🎮</span>
+            <h3>Proper Three-Axis Control</h3>
+            <p>Dedicated ailerons, elevator and rudders give independent control over roll, pitch and yaw — a real asset for testing autonomous flight later.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">🔧</span>
+            <h3>Twin-Boom Synergy</h3>
+            <p>The booms let the tail sit behind the propeller without a fuselage running through the prop location, and give large vertical-tail area without one big fin.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">📊</span>
+            <h3>A Genuine Comparison Platform</h3>
+            <p>Not a claim that every feature is superior — a different configuration, built specifically to be measured against the original aircraft.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     DESIGN SPEC
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>Current Design Specification</h2>
+
+    <p>
+        The approximate architecture for this prototype, as it
+        stands going into CFD:
+    </p>
+
+    <ul>
+        <li>600mm wingspan</li>
+        <li>~320mm central fuselage</li>
+        <li>~65mm maximum fuselage width</li>
+        <li>30mm circular rear motor section</li>
+        <li>Single A2212-class rear pusher motor</li>
+        <li>Tapered main wing</li>
+        <li>Twin rear booms</li>
+        <li>Twin vertical fins / rudders</li>
+        <li>Horizontal stabiliser + elevator</li>
+        <li>Outboard ailerons</li>
+        <li>Large central electronics / battery / payload compartment</li>
+    </ul>
+
+</section>
+
+
+<!-- ==================================================
+     TESTING PLAN
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>What Gets Measured</h2>
+
+    <p>
+        Once this moves past CFD and into a built, flight-tested
+        aircraft, the plan is to compare it against the previous
+        Eirspace UAS across:
+    </p>
+
+    <div class="project-tags">
+        <span>Cruise power</span>
+        <span>Max speed</span>
+        <span>Stall speed</span>
+        <span>Endurance</span>
+        <span>Climb rate</span>
+        <span>Roll rate</span>
+        <span>Pitch response</span>
+        <span>Yaw response</span>
+        <span>Stability</span>
+        <span>Payload capability</span>
+        <span>Motor / ESC temperature</span>
+        <span>Structural mass</span>
+        <span>Total aircraft mass</span>
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CURRENT STATUS
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>Current Status</h2>
+
+    <p>
+        Design is complete and currently going through CFD
+        simulation to check the aerodynamic assumptions above
+        before committing to manufacturing. Manufacturing and
+        flight testing come after that — this page will get
+        updated with real CFD output, build photos, and eventually
+        flight data as each of those happens.
+    </p>
+
+    <p>
+        The honest framing, for now: this design explores a
+        streamlined single-pusher, twin-boom configuration meant
+        to reduce propulsion/wing interference, add independent
+        three-axis control, and improve aerodynamic packaging.
+        Whether that actually pays off gets settled by CFD and
+        flight testing — not by how it looks in CAD.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <span>
+        © 2026 Michael Walshe
+    </span>
+
+    <span>
+        Mechanical & Manufacturing Engineering
+    </span>
+
+    <span>
+        Dublin, Ireland
+    </span>
+
+</footer>
+
+
+<script>
+
+    document.querySelectorAll('.magnetic').forEach(function (el) {
+
+        el.addEventListener('mousemove', function (e) {
+
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            el.style.transform =
+                'translate(' + (x * 0.25) + 'px,' + (y * 0.35) + 'px)';
+
+        });
+
+        el.addEventListener('mouseleave', function () {
+            el.style.transform = '';
+        });
+
+    });
+
+
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(function (entries) {
+
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+
+    }, { threshold: 0.1 });
+
+    revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+    });
+
+
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+    }
+
+    themeToggle.addEventListener('click', function () {
+
+        const isDark = root.getAttribute('data-theme') === 'dark';
+
+        if (isDark) {
+            root.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            root.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Michael Walshe — CAD Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+        Michael Walshe
+    </a>
+
+    <nav>
+        <a href="cad.html" class="magnetic">CAD</a>
+        <a href="projects.html" class="magnetic">Projects</a>
+        <a href="experience.html" class="magnetic">Experience</a>
+        <a href="index.html#contact" class="magnetic">Contact</a>
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+        >
+            <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+            </span>
+        </button>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="placeholder-wrap reveal">
+
+        <div class="placeholder-box">
+
+            <span class="eyebrow">
+                CAD PORTFOLIO
+            </span>
+
+            <h1>
+                Website building in progress.
+            </h1>
+
+            <p>
+                Information to come soon.
+            </p>
+
+            <a href="index.html" class="back-link">
+                ← Back home
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <span>
+        © 2026 Michael Walshe
+    </span>
+
+    <span>
+        Mechanical & Manufacturing Engineering
+    </span>
+
+    <span>
+        Dublin, Ireland
+    </span>
+
+</footer>
+
+
+<script>
+
+    document.querySelectorAll('.magnetic').forEach(function (el) {
+
+        el.addEventListener('mousemove', function (e) {
+
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            el.style.transform =
+                'translate(' + (x * 0.25) + 'px,' + (y * 0.35) + 'px)';
+
+        });
+
+        el.addEventListener('mouseleave', function () {
+            el.style.transform = '';
+        });
+
+    });
+
+
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(function (entries) {
+
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+
+    }, { threshold: 0.1 });
+
+    revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+    });
+
+
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+    }
+
+    themeToggle.addEventListener('click', function () {
+
+        const isDark = root.getAttribute('data-theme') === 'dark';
+
+        if (isDark) {
+            root.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            root.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

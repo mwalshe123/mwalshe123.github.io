@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Michael Walshe — Autonomous Buggy</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+        Michael Walshe
+    </a>
+
+    <nav>
+        <a href="cad.html" class="magnetic">CAD</a>
+        <a href="projects.html" class="magnetic">Projects</a>
+        <a href="experience.html" class="magnetic">Experience</a>
+        <a href="index.html#contact" class="magnetic">Contact</a>
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle dark mode"
+        >
+            <span class="toggle-track">
+                <span class="toggle-thumb"></span>
+            </span>
+        </button>
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="project-hero reveal">
+
+    <div class="project-hero-visual">
+        <img src="images/buggy-full.jpg" alt="Autonomous buggy, full build">
+    </div>
+
+    <div class="project-hero-info">
+
+        <span class="eyebrow">
+            EMBEDDED SYSTEMS · CONTROL · ELECTRONICS · ARDUINO
+        </span>
+
+        <h1>
+            Autonomous Buggy
+            <span class="group-tag">GROUP PROJECT</span>
+        </h1>
+
+        <p>
+            An autonomous two-wheel robotic vehicle combining
+            embedded control, wireless communication, ultrasonic
+            sensing, wheel-encoder feedback and closed-loop PID
+            control — built for 2E10 Engineering Design IV at
+            Trinity College Dublin.
+        </p>
+
+        <div class="stat-row">
+            <span>ARDUINO UNO R4 WIFI</span>
+            <span>C++ / ARDUINO · PROCESSING</span>
+            <span>PID · WIFI · ULTRASONIC · ENCODERS</span>
+            <span class="stat-gold">GOLD CHALLENGE ✓</span>
+        </div>
+
+        <a href="projects.html" class="back-link">
+            ← Back to projects
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     OVERVIEW
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>Project Overview</h2>
+
+    <div class="overview-row">
+
+        <p>
+            Working as part of an engineering team, I helped
+            develop an autonomous two-wheel robotic vehicle
+            capable of navigating independently, detecting
+            obstacles, measuring its own movement, and operating
+            under closed-loop control.
+        </p>
+
+        <p>
+            The project progressed through three increasingly
+            complex stages — <strong>Bronze, Silver and Gold</strong>
+            — each adding further sensing, communication and
+            control requirements. The brief called for a buggy
+            that combines environmental sensors with a control
+            system to interpret that data and act on it.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     SYSTEM ARCHITECTURE
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>System Architecture</h2>
+
+    <p>
+        The Arduino Uno R4 WiFi sat at the centre of the system —
+        its exposed I/O made it straightforward to wire in sensors
+        on one side and motor control on the other, while its
+        onboard WiFi handled communication back to a laptop.
+    </p>
+
+    <div class="arch-flow">
+        <div>Arduino Uno R4 WiFi</div>
+        <div>Sensor Inputs — Ultrasonic sensor · Wheel encoders</div>
+        <div>Control Logic — Navigation · Distance measurement · PID</div>
+        <div>Motor Driver / H-Bridge</div>
+        <div>Left + Right DC Motors</div>
+    </div>
+
+    <div class="fritzing-card">
+        <img src="images/fritzing.png" alt="Fritzing circuit diagram for the autonomous buggy">
+        <span class="fritzing-caption">
+            Full circuit — battery pack, CD4040 encoder counter,
+            ultrasonic sensor, H-Bridge and both DC motors wired
+            to the Uno R4.
+        </span>
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     DEVELOPMENT STAGES
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>Development</h2>
+
+    <div class="stage-grid">
+
+        <div class="stage-card">
+
+            <div class="stage-top">
+                <span class="stage-num">01</span>
+                <span class="stage-badge stage-bronze">BRONZE ✓</span>
+            </div>
+
+            <h3>Autonomous Navigation</h3>
+
+            <p>
+                Independent DC motor control combined with
+                ultrasonic obstacle detection. The buggy could:
+            </p>
+
+            <ul>
+                <li>Navigate the course in both directions</li>
+                <li>Detect obstacles and stop before collision</li>
+                <li>Start and stop remotely</li>
+                <li>Communicate vehicle events wirelessly</li>
+            </ul>
+
+        </div>
+
+
+        <div class="stage-card">
+
+            <div class="stage-top">
+                <span class="stage-num">02</span>
+                <span class="stage-badge stage-silver">SILVER ✓</span>
+            </div>
+
+            <h3>Encoder-Based Positioning</h3>
+
+            <p>
+                Added wheel-rotation feedback — a CD4040 binary
+                counter reading pulses from a hall-effect encoder,
+                shifted out over a register the Arduino could read
+                directly — to move from basic autonomous behaviour
+                toward measurable, closed-loop-ready motion.
+            </p>
+
+            <p>
+                The spec called for an analogue wheel-rotation
+                measurement to be checked against a digital
+                Arduino reading before trusting encoder data to
+                navigate the course.
+            </p>
+
+        </div>
+
+
+        <div class="stage-card">
+
+            <div class="stage-top">
+                <span class="stage-num">03</span>
+                <span class="stage-badge stage-gold">GOLD ✓</span>
+            </div>
+
+            <h3>Closed-Loop Control</h3>
+
+            <p>
+                The final stage introduced PID control, turning
+                the buggy into a proper closed-loop system, with
+                two modes:
+            </p>
+
+            <ul>
+                <li><strong>Speed Control</strong> — hold a reference speed set via the GUI</li>
+                <li><strong>Object Following</strong> — track an object at a safe, steady distance</li>
+            </ul>
+
+            <p>
+                Distance and event data were transmitted wirelessly
+                throughout — the core requirement of the Gold
+                Challenge.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CODE — PID + SPEED CONTROL
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>The Control Loop</h2>
+
+    <p>
+        The Gold challenge's speed control ran off a simple PID
+        loop, comparing a piecewise reference speed profile
+        against the actual speed measured from the wheel encoder:
+    </p>
+
+    <pre>float Kp = 2.0;
+float Ki = 0.3;
+float Kd = 0.1;
+
+float computePID(float ref, float actual, float dt) {
+  error = ref - actual;
+
+  integral += error * dt;
+  float derivative = (error - prevError) / dt;
+
+  float output = Kp * error + Ki * integral + Kd * derivative;
+
+  prevError = error;
+  return output;
+}
+
+int timePoints[] = {0, 10, 30, 40, 45};
+int speedRefs[]  = {20, 30, 10, 20, 10};</pre>
+
+    <p>
+        Every run logged a mean-squared error between reference
+        and actual speed, printed once the 60-second run finished
+        — a straightforward way to quantify how well the
+        controller was actually tracking, rather than just
+        eyeballing it.
+    </p>
+
+    <p>
+        <a href="code/autonomous-buggy-gold.ino" download class="back-link">
+            ↓ Download the full sketch (.ino)
+        </a>
+    </p>
+
+</section>
+
+
+<!-- ==================================================
+     ENGINEERING HIGHLIGHTS
+================================================== -->
+
+<section class="project-body reveal">
+
+    <h2>Engineering Highlights</h2>
+
+    <div class="highlight-grid">
+
+        <div class="highlight-card">
+            <span class="highlight-icon">⚙</span>
+            <h3>Embedded Control</h3>
+            <p>Arduino / C++ software integrating sensing, decision-making and motor actuation.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">📡</span>
+            <h3>Wireless Communication</h3>
+            <p>WiFi link between the Uno R4 and a laptop-based control interface.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">📏</span>
+            <h3>Sensor Integration</h3>
+            <p>Ultrasonic ranging and wheel-rotation feedback feeding autonomous behaviour.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">🎛</span>
+            <h3>PID Control</h3>
+            <p>Closed-loop speed and following-distance control for the Gold Challenge.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">🔌</span>
+            <h3>Electronics</h3>
+            <p>H-Bridge motor control plus supporting analogue and digital circuitry.</p>
+        </div>
+
+        <div class="highlight-card">
+            <span class="highlight-icon">🖥</span>
+            <h3>GUI Development</h3>
+            <p>Processing-based interface for command, monitoring and vehicle feedback.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     RESULT
+================================================== -->
+
+<section class="result-banner reveal">
+
+    <span class="eyebrow">FINAL RESULT</span>
+
+    <h2>Gold Challenge Completed ✓</h2>
+
+    <p class="result-flow">
+        Autonomous navigation → Wireless control →
+        Encoder feedback → Closed-loop PID control
+    </p>
+
+</section>
+
+
+<!-- ==================================================
+     REFLECTION + SKILLS
+================================================== -->
+
+<section class="project-body reveal">
+
+    <p>
+        This project shaped how I understand mechanical,
+        electronic and software systems working together as one
+        mechatronic whole — going from testing individual
+        components in isolation to integrating, debugging and
+        validating a buggy that actually had to work, end to end,
+        on the day.
+    </p>
+
+    <div class="project-tags">
+        <span>Arduino</span>
+        <span>C++</span>
+        <span>PID Control</span>
+        <span>Embedded Systems</span>
+        <span>Electronics</span>
+        <span>Sensors</span>
+        <span>WiFi</span>
+        <span>Processing</span>
+        <span>Motor Control</span>
+        <span>Prototyping</span>
+    </div>
+
+</section>
+
+
+<section class="project-gallery reveal">
+
+    <div class="gallery-item">
+        <img src="images/buggy-full.jpg" alt="Autonomous buggy, full build">
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/buggy-front.jpg" alt="Autonomous buggy, front sensor detail">
+    </div>
+
+    <div class="gallery-item">
+        <img src="images/buggy-top.jpg" alt="Autonomous buggy, top-down view">
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <span>
+        © 2026 Michael Walshe
+    </span>
+
+    <span>
+        Mechanical & Manufacturing Engineering
+    </span>
+
+    <span>
+        Dublin, Ireland
+    </span>
+
+</footer>
+
+
+<script>
+
+    document.querySelectorAll('.magnetic').forEach(function (el) {
+
+        el.addEventListener('mousemove', function (e) {
+
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            el.style.transform =
+                'translate(' + (x * 0.25) + 'px,' + (y * 0.35) + 'px)';
+
+        });
+
+        el.addEventListener('mouseleave', function () {
+            el.style.transform = '';
+        });
+
+    });
+
+
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver(function (entries) {
+
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+
+    }, { threshold: 0.1 });
+
+    revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+    });
+
+
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+    }
+
+    themeToggle.addEventListener('click', function () {
+
+        const isDark = root.getAttribute('data-theme') === 'dark';
+
+        if (isDark) {
+            root.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            root.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
